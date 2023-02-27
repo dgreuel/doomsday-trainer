@@ -7,7 +7,9 @@ const min = new Date('1/1/1700');
 const max = new Date('12/31/2099');
 
 function getRandomDate(min: Date, max: Date) {
-  return new Date(min.valueOf() + Math.floor(Math.random() * max.valueOf()));
+  return new Date(
+    min.valueOf() + Math.floor(Math.random() * (max.valueOf() - min.valueOf()))
+  );
 }
 
 const App: Component = () => {
