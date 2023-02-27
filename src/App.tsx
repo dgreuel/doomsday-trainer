@@ -21,10 +21,12 @@ const App: Component = () => {
     'Saturday',
   ];
 
-  const [status, setStatus] = createSignal('default');
-  const [wrong, setWrong] = createSignal(0);
-  const [right, setRight] = createSignal(0);
-  const [date, setDate] = createSignal(getRandomDate(min, max));
+  type Status = 'right' | 'wrong' | 'default';
+
+  const [status, setStatus] = createSignal<Status>('default');
+  const [wrong, setWrong] = createSignal<number>(0);
+  const [right, setRight] = createSignal<number>(0);
+  const [date, setDate] = createSignal<Date>(getRandomDate(min, max));
 
   function check(question: Date, answer: number) {
     if (answer === question.getDay()) {
